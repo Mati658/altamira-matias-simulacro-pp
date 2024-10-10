@@ -1,59 +1,9 @@
 <div class="card-fondo">
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
-    <div class="card">
-        Pelicula-foto
-    </div>
+    @for (pelicula of peliculas; track $index) {
+        <div class="card" (click)="seleccionarPelicula($index)" >
+            {{peliculas[$index].nombre}}
+            <img src="{{peliculas[$index].foto}}">
+        </div>
+    }
+    
 </div>

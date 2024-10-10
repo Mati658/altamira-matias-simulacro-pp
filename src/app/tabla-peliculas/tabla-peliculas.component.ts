@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pelicula } from '../classes/pelicula';
 
 @Component({
   selector: 'app-tabla-peliculas',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './tabla-peliculas.component.css'
 })
 export class TablaPeliculasComponent {
+  @Input() peliculas:Pelicula[] = [];
+  @Output() detallePelicula : EventEmitter<Pelicula> = new EventEmitter<Pelicula>;
 
+  seleccionarPelicula(index : number){
+    console.log(this.peliculas[index])
+    this.detallePelicula.emit(this.peliculas[index]);
+  }
 }

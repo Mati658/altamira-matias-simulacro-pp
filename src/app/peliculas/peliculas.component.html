@@ -2,9 +2,9 @@
     <H1 style="text-align: center;">PELICULAS</H1>
         
     <div class="tabla-pelicula">
-        <app-tabla-peliculas></app-tabla-peliculas>
+        <app-tabla-peliculas [peliculas]="pelicula" (detallePelicula)="recibirDetallePelicula($event)"></app-tabla-peliculas>
         <div class="detalle-pelicula">
-            <app-detalle-peliculas></app-detalle-peliculas>
+            <app-detalle-peliculas [obtenerDetallePelicula]="detallePelicula"></app-detalle-peliculas>
         </div>
     </div>
 </div>

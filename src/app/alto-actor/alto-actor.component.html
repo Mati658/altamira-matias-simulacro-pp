@@ -1,1 +1,95 @@
-<p>alto-actor works!</p>
+<div class="form">
+    <form action="" [formGroup]="formGroup" (ngSubmit)="altaActor()">
+        <div class="form_group">
+            <label>Nombre: </label>
+            <input class="form-control" style="width: 50vh;" formControlName="nombre" name="nombre" placeholder="Ponga su nombre">
+            @if (formGroup.controls['nombre'].errors !== null && formGroup.controls['nombre'].touched) 
+            {
+                @if (formGroup.controls['nombre'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['nombre'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 2 caracteres</p>
+                }
+                @if (formGroup.controls['nombre'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo letras</p>
+                }                
+            }
+            <label>Apellido: </label>
+            <input class="form-control" formControlName="apellido" name="apellido" placeholder="Ponga su apellido">
+            @if (formGroup.controls['apellido'].errors !== null && formGroup.controls['apellido'].touched) 
+            {
+                @if (formGroup.controls['apellido'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['apellido'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 2 caracteres</p>
+                }
+                @if (formGroup.controls['apellido'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo letras</p>
+                }                      
+            }
+            <label>DNI: </label>
+            <input class="form-control" formControlName="dni" name="dni" placeholder="Ponga su dni">
+            @if (formGroup.controls['dni'].errors !== null && formGroup.controls['dni'].touched) 
+            {
+                @if (formGroup.controls['dni'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['dni'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 6 caracteres</p>
+                }     
+                @if (formGroup.controls['dni'].errors!['maxlength']) 
+                {
+                    <p style="color: red;">Máximo 12 números</p>
+                } 
+                @if (formGroup.controls['dni'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo números</p>
+                }                      
+            }
+            <label>Edad: </label>
+            <input class="form-control" formControlName="edad" name="edad" placeholder="Ponga su edad">
+            @if (formGroup.controls['edad'].errors !== null && formGroup.controls['edad'].touched) 
+            {
+                @if (formGroup.controls['edad'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['edad'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 1 número</p>
+                }  
+                @if (formGroup.controls['edad'].errors!['maxlength']) 
+                {
+                    <p style="color: red;">Máximo 2 números</p>
+                }  
+                @if (formGroup.controls['edad'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo números</p>
+                }                            
+            }
+            <label>País: </label>
+            <input class="form-control" formControlName="pais" name="pais" placeholder="Ponga su pais" readonly>
+            @if (formGroup.controls['pais'].errors !== null && formGroup.controls['pais'].touched) 
+            {
+                @if (formGroup.controls['pais'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }                         
+            }
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px;">Registrar</button>
+        </div>
+    </form>
+    <div class="paises">
+        <app-tabla-paises (pais)="obtenerPais($event)"></app-tabla-paises>
+    </div>
+</div>

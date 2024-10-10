@@ -1,0 +1,22 @@
+.pelicula{
+    display: block;
+}
+
+.tabla-pelicula{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 60%;
+    height: 50%;
+    margin-top: 1%;
+    right: 50%;
+}
+
+.detalle-pelicula{
+    display: flex;
+    position:absolute;
+    justify-content: center;
+    top: 105%;
+    width: 100%;
+    height: 200px;
+}

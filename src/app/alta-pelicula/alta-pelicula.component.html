@@ -1,1 +1,101 @@
-<p>alta-pelicula works!</p>
+<div class="form">
+    <form action="" [formGroup]="formGroup" (ngSubmit)="altaPelicula()">
+        <div class="form_group">
+            <label>Nombre: </label>
+            <input class="form-control" style="width: 50vh;" formControlName="nombre" name="nombre" placeholder="Nombre de la película">
+            @if (formGroup.controls['nombre'].errors !== null && formGroup.controls['nombre'].touched) 
+            {
+                @if (formGroup.controls['nombre'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['nombre'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 2 caracteres</p>
+                }
+                @if (formGroup.controls['nombre'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo letras</p>
+                }                
+            }
+            <label>Tipo: </label>
+            <select id="paises" (change)="recibirTipo($event)" formControlName="tipo" name="tipo" placeholder="Ponga su tipo" >
+                <option value="0">Tipo</option>
+                <option value="Acción">Acción</option>
+                <option value="Amor">Amor</option>
+                <option value="Ciencia Ficción">Ciencia Ficción</option>
+                <option value="Comedia">Comedia</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasía">Fantasía</option>
+                <option value="Terror">Terror</option>
+            </select>
+            @if (formGroup.controls['tipo'].errors !== null && formGroup.controls['tipo'].touched) 
+            {
+                @if (formGroup.controls['tipo'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }                   
+            }
+            <label>Fecha de Estreno </label>
+            <input class="form-control" formControlName="fechaEstreno" name="fechaEstreno" type="date">
+            @if (formGroup.controls['fechaEstreno'].errors !== null && formGroup.controls['fechaEstreno'].touched) 
+            {
+                @if (formGroup.controls['fechaEstreno'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }                       
+            }
+            <label>Cantidad de público: </label>
+            <input class="form-control" formControlName="cantPublico" name="cantPublico" placeholder="Cantidad de Publico">
+            @if (formGroup.controls['cantPublico'].errors !== null && formGroup.controls['cantPublico'].touched) 
+            {
+                @if (formGroup.controls['cantPublico'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['cantPublico'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 1 número</p>
+                }  
+                @if (formGroup.controls['cantPublico'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo números</p>
+                }                            
+            }
+            <label>Protagonista: </label>
+            <input class="form-control" formControlName="protagonista" name="protagonista" placeholder="Ponga el protagonista" readonly>
+            @if (formGroup.controls['protagonista'].errors !== null && formGroup.controls['protagonista'].touched) 
+            {
+                @if (formGroup.controls['protagonista'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }
+                @if (formGroup.controls['protagonista'].errors!['minlength']) 
+                {
+                    <p style="color: red;">Mínimo 2 caracteres</p>
+                }
+                @if (formGroup.controls['protagonista'].errors!['pattern']) 
+                {
+                    <p style="color: red;">Solo letras</p>
+                }                           
+            }
+            <label>Foto: </label>
+            <input class="form-control" formControlName="foto" name="foto" type="url" placeholder="URL de la imagen">
+            @if (formGroup.controls['foto'].errors !== null && formGroup.controls['foto'].touched) 
+            {
+                @if (formGroup.controls['foto'].errors!['required']) 
+                {
+                    <p style="color: red;">*Campo obligatorio</p>
+                }   
+                @if (formGroup.controls['foto'].errors!['pattern']) 
+                {
+                    <p style="color: red;">URL inválido</p>
+                }                      
+            }
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px;">Subir</button>
+        </div>
+    </form>
+    <div class="paises">
+        <app-tabla-actores (actor)="obtenerActor($event)"></app-tabla-actores>
+    </div>
+</div>

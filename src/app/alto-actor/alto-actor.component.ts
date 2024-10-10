@@ -31,7 +31,8 @@ export class AltoActorComponent {
 
   obtenerPais(pais:string){
     if (pais!="") {
-      this.formGroup.controls['pais'].setValue(pais);
+      if (pais != "0")
+        this.formGroup.controls['pais'].setValue(pais);
     }
   }
 

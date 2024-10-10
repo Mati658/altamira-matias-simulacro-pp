@@ -1,7 +1,8 @@
 <div class="card-fondo">
     @for (pelicula of peliculas; track $index) {
         <div class="card" (click)="seleccionarPelicula($index)" >
-            {{peliculas[$index].nombre}}
+            <p>{{peliculas[$index].nombre}}</p>
+                
             <img src="{{peliculas[$index].foto}}">
         </div>
     }

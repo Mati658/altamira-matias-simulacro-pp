@@ -8,15 +8,13 @@
     color: white;
   }
   thead{
-    position: relative;
-    gap: 50px;
+    text-align: center;
   }
   th{
-    padding-right: 8vh;
+    padding-right: 11vh;
+    text-align: center;
   }
   td{
-    text-align: left;
+    text-align: center;
   }
-  table{
-    border-spacing: 50px 10px;
-  }
+

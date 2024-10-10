@@ -1,0 +1,20 @@
+.form{
+    display: flex;
+    position: absolute;
+    margin-top: 5%;
+}
+
+.form_group{
+    display:flex;
+    position:fixed;
+    flex-direction: column;
+    left: 35%;
+
+}
+
+.paises{
+    display: flex;
+    position:fixed;
+    right: 2%;
+    margin-left: 5%;
+}

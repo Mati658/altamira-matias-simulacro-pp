@@ -12,11 +12,7 @@
                 @if (formGroup.controls['nombre'].errors!['minlength']) 
                 {
                     <p style="color: red;">Mínimo 2 caracteres</p>
-                }
-                @if (formGroup.controls['nombre'].errors!['pattern']) 
-                {
-                    <p style="color: red;">Solo letras</p>
-                }                
+                }             
             }
             <label>Tipo: </label>
             <select id="paises" (change)="recibirTipo($event)" formControlName="tipo" name="tipo" placeholder="Ponga su tipo" >

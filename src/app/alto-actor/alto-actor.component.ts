@@ -48,5 +48,10 @@ export class AltoActorComponent {
     const actor = new Actor(this.formGroup.controls['nombre'].value, this.formGroup.controls['apellido'].value, this.formGroup.controls['dni'].value, this.formGroup.controls['edad'].value, this.formGroup.controls['pais'].value);
     console.log(actor);
     this.database.agregarActor(actor);
+    this.formGroup.controls['nombre'].setValue("");
+    this.formGroup.controls['apellido'].setValue("");
+    this.formGroup.controls['dni'].setValue("");
+    this.formGroup.controls['edad'].setValue("");
+    this.formGroup.controls['pais'].setValue("");
   }
 }

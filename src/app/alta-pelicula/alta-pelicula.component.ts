@@ -19,10 +19,11 @@ export class AltaPeliculaComponent {
   invalido : boolean = false;
   tipo : string = "";
   pelis : string[] = [];
+  pelicula! : Pelicula;
 
   constructor(){
     this.formGroup = this.fb.group({
-      nombre: ["", [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
+      nombre: ["", [Validators.required, Validators.minLength(2)]],
       tipo : ["",[Validators.required]],
       fechaEstreno : ["",[Validators.required]],
       cantPublico : ["",[Validators.required, Validators.minLength(1), Validators.pattern('[0-9]*')]],
@@ -49,9 +50,17 @@ export class AltaPeliculaComponent {
     }
     this.database.traerPeliculas().subscribe((peli:any)=>{
       this.pelis = peli;
-      const pelicula = new Pelicula(this.pelis.length+1 ,this.formGroup.controls['nombre'].value, this.formGroup.controls['tipo'].value, this.formGroup.controls['fechaEstreno'].value, this.formGroup.controls['cantPublico'].value, this.formGroup.controls['foto'].value, this.formGroup.controls['protagonista'].value);
-      this.database.agregarPelicula(pelicula);
+      this.pelicula = new Pelicula(this.pelis.length+1 ,this.formGroup.controls['nombre'].value, this.formGroup.controls['tipo'].value, this.formGroup.controls['fechaEstreno'].value, this.formGroup.controls['cantPublico'].value, this.formGroup.controls['foto'].value, this.formGroup.controls['protagonista'].value);
     })
+    setTimeout(() => {
+      this.database.agregarPelicula(this.pelicula);      
+      this.formGroup.controls['nombre'].setValue("");
+      this.formGroup.controls['tipo'].setValue("");
+      this.formGroup.controls['fechaEstreno'].setValue("");
+      this.formGroup.controls['cantPublico'].setValue("");
+      this.formGroup.controls['foto'].setValue("");
+      this.formGroup.controls['protagonista'].setValue("");
+    }, 500);
   }
 
   recibirTipo(event : Event){

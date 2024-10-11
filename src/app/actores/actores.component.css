@@ -1,0 +1,42 @@
+.actores{
+    display: block;
+}
+
+.listado-actores{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 60%;
+    height: 50%;
+    margin-top: 1%;
+    right: 50%;
+}
+
+.detalle-actor{
+    display: flex;
+    position:absolute;
+    justify-content: center;
+    top: 105%;
+    width: 25%;
+    height: 200px;
+}
+
+.detalle-pais{
+    display: flex;
+    position:absolute;
+    justify-content: center;
+    top: 105%;
+    width: 25%;
+    height: 200px;
+    left: 75%;
+}
+
+.peliculas-actor{
+    display: flex;
+    position:absolute;
+    justify-content: center;
+    top: 105%;
+    width: 25%;
+    height: 200px;
+    left: 112%;
+}

@@ -1,1 +1,16 @@
-<p>actores works!</p>
+<div class="actores">
+    <H1 style="text-align: center;">ACTORES</H1>
+        
+    <div class="listado-actores">
+        <app-listado-actores [actores]="actores" (detallePelicula)="recibirDetalleActor($event)"></app-listado-actores>
+        <div class="detalle-actor">
+            <app-detalle-actor [actor]="detalleActor"></app-detalle-actor>
+        </div>
+        <div class="detalle-pais">
+            <app-detalle-pais [obtenerActor]="detalleActor"></app-detalle-pais>
+        </div>
+        <div class="peliculas-actor">
+            <app-peliculas-actor [obtenerActor]="detalleActor"></app-peliculas-actor>
+        </div>
+    </div>
+</div>
